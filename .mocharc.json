@@ -1,0 +1,10 @@
+{
+  "colors": true,
+  "exit": true,
+  "recursive": true,
+  "bail": true,
+  "timeout": "3m",
+  "require": "ts-node/register/transpile-only",
+  "spec": "src/tests/**/*.spec.ts",
+  "file": "src/tests/index.ts"
+}

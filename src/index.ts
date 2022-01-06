@@ -1,30 +1,19 @@
-import Koa from 'koa';
-import dotenv from 'dotenv';
-import cors from '@koa/cors';
-import bodyParser from 'koa-bodyparser';
-import AuthRoute from './routes/auth';
-import UserRoute from './routes/user';
-import ProductRoute from './routes/products';
-import { dbConn } from './data/index';
+import exitHook from 'async-exit-hook';
+import * as server from './service';
 
-dotenv.config();
-const app = new Koa();
+const delay = async (sec: number) => {
+  return new Promise((resolve) => setTimeout(resolve, sec * 1000));
+};
 
-dbConn();
+server.start();
 
-app.use(cors());
-app.use(bodyParser());
+exitHook(async (callback: () => void) => {
+  await server.stop();
+  await delay(10);
+  callback();
+});
 
-const PORT = process.env.PORT || 3000;
-
-app.use(AuthRoute.routes());
-app.use(UserRoute.routes());
-app.use(ProductRoute.routes());
-
-const server = app.listen(PORT, () =>
-  console.log(`Server is listening on port ${PORT}.`),
-);
-
-app.use(async (ctx) => (ctx.body = { msg: `Welcome to this API.` }));
-
-export = server;
+exitHook.uncaughtExceptionHandler(async () => {
+  await delay(10);
+  process.exit(-1);
+});
