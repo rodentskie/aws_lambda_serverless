@@ -4,6 +4,7 @@ import bodyParser from 'koa-bodyparser';
 import AuthRoute from './routes/auth';
 import UserRoute from './routes/user';
 import ProductRoute from './routes/products';
+import * as db from './data/index';
 
 const app = new Koa();
 
@@ -16,4 +17,6 @@ app.use(ProductRoute.routes());
 
 app.use(async (ctx) => (ctx.body = { msg: `Welcome to this API.` }));
 
-export default app;
+db.start();
+
+export = app;

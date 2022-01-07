@@ -13,20 +13,15 @@
     "noImplicitAny": true,
     "removeComments": true,
     "noImplicitThis": true,
+    "allowJs": true,
     "alwaysStrict": true,
     "noUnusedLocals": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "noPropertyAccessFromIndexSignature": false,
-    "lib": [
-      "es2020",
-      "esnext",
-      "dom"
-    ],
+    "lib": ["es2020", "esnext", "dom"],
     "outDir": "build"
   },
-  "include": [
-    "**/*.ts"
-  ],
+  "include": ["**/*.ts"],
   "exclude": ["node_modules/**/*"]
 }

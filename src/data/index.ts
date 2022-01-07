@@ -3,11 +3,13 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const start = async () => {
+const start = () => {
   const uri: string =
     process.env.MONGO_URI || `mongodb://localhost/queuing_dev`;
 
-  await connect(uri, {
+  console.log(`URI is ${uri}`);
+
+  connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,

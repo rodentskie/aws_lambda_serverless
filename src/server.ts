@@ -7,8 +7,6 @@ dotenv.config();
 let server: Server;
 
 const start = async () => {
-  await db.start();
-
   const port = process.env.PORT || 5000;
 
   server = app.listen(port, () => {
@@ -20,7 +18,7 @@ const start = async () => {
 
 const stop = async () => {
   await new Promise((resolve) => server.close(resolve));
-  await db.stop();
+  db.stop();
 };
 
 export { start, stop };
