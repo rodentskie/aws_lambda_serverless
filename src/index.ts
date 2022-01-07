@@ -1,5 +1,5 @@
 import exitHook from 'async-exit-hook';
-import * as server from './service';
+import * as server from './server';
 
 const delay = async (sec: number) => {
   return new Promise((resolve) => setTimeout(resolve, sec * 1000));

@@ -1,10 +1,10 @@
-import * as service from '../service';
+import * as server from '../server';
 
 before(async function () {
-  const { server } = await service.start();
-  this.server = server;
+  const app = await server.start();
+  this.server = app;
 });
 
 after(async function () {
-  await service.stop();
+  await server.stop();
 });
