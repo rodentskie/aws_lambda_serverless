@@ -173,6 +173,7 @@ const getAllProducts = async (ctx: Context, next: Function) => {
 
   const transformedData = R.map((obj: Object) => {
     const data = obj as {
+      _id: string;
       id: string;
       name: string;
       price: number;
@@ -183,6 +184,7 @@ const getAllProducts = async (ctx: Context, next: Function) => {
 
     const product = {
       product: {
+        _id: data._id,
         id: data.id,
         name: data.name,
         price: data.price,

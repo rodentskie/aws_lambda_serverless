@@ -11,10 +11,11 @@ const router = new Router({
   prefix: '/products',
 });
 
-router.post(`/`, validateToken, addProduct);
-router.delete(`/:id`, validateToken, deleteProduct);
-router.patch(`/:id`, validateToken, updateProduct);
-router.post(`/`, validateToken, addProduct);
+router.use(validateToken);
+
+router.post(`/`, addProduct);
+router.delete(`/:id`, deleteProduct);
+router.patch(`/:id`, updateProduct);
 router.get(`/`, getAllProducts);
 
 export = router;
