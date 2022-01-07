@@ -198,7 +198,10 @@ describe(`Products test suite.`, function () {
   });
 
   it(`Successful fetch all product [GET /products]`, async function () {
-    const req = await Request(this.server).get(`/products`);
+    const req = await Request(this.server)
+      .get(`/products`)
+      .set('Authorization', 'Bearer ' + login.token);
+
     expect(req.status).to.equal(200);
   });
 });
