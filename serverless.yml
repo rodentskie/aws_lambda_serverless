@@ -14,11 +14,11 @@ provider:
   region: ap-southeast-1
   vpc:
     securityGroupIds:
-      - sg-0c6211b6d07438ef2
+      - sg-0e877d7361032a269
     subnetIds:
-      - subnet-0deeaf65066a1cfbf
-      - subnet-0bd930ef6439bcce2
-      - subnet-0effd43327a3572b5
+      - subnet-0fb69a83a2f67b644
+      - subnet-0ac8f067660edbe3a
+      - subnet-0571022f6ba208cbe
 
 functions:
   hello:
@@ -35,4 +35,4 @@ functions:
     environment:
       PORT: 3050
       NODE_ENV: dev
-      MONGO_URI: mongodb+srv://rod:admin@cluster0.ws75w.mongodb.net/
+      MONGO_URI: mongodb+srv://rod:qwe@cluster0.ws75w.mongodb.net/rod

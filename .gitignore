@@ -126,3 +126,5 @@ dist
 
 bazel-*
 build/
+
+**/.terraform
